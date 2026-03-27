@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'Acceuil.css' %}">
+	<link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    <script>
+    // Redirection après 3 secondes
+    setTimeout(function() {
+      window.location.href = "{% static 'index.html' %}" // Remplace par ta vraie page
+    }, 5000); // 3000 ms = 3 secondes
+  </script>
+</head>
+<body class="bg-dark d-flex justify-content-center align-items-center vh-100">
+    <!-- From Uiverse.io by Nawsome --> 
+
+        <div class="b-5"><img src="{% static 'image/Ban.png' %}" alt=""></div>
+	
+
+</body>
+   
+</html>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOYEUX ANNIVERSAIRE</title>
+    <!-- Bootstrap 5 CSS -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="Acceuil.css">
+	<link rel="stylesheet" href="css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .card-main {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            padding: 1rem;
+            text-align: center;
+            max-width: 700px;
+            width: 90%;
+            margin-bottom: 0rem;
+        }
+
+        h1 {
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            color: #d63384;
+            margin-bottom: 1rem;
+        }
+
+        .birthday-text {
+            font-size: clamp(1rem, 1.5vw, 1.3rem);
+            color: #495057;
+            margin-bottom: 1.5rem;
+        }
+
+        .photos-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .photo {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        @media (max-width: 576px) {
+            .photo {
+                width: 40px;
+                height: 60px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .photo {
+                width: 100px;
+                height: 120px;
+            }
+        }
+
+        .photo.ani {
+            animation: float 2s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0); }
+            50% { transform: translateY(-15px) rotate(10deg); }
+        }
+
+        .music-btn, .surprise-btn {
+            margin: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
+            border: none;
+            border-radius: 20px;
+            background: #d63384;
+            color: white;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+        .surprise-btn {
+            background: #6f42c1;
+        }
+        .music-btn:hover, .surprise-btn:hover {
+            opacity: 0.9;
+            transform: scale(1.02);
+        }
+
+        /* Surprise */
+        #surpriseContainer {
+            display: none;
+            padding: 1rem;
+            margin-top: 1rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            max-width: 700px;
+            width: 90%;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #495057;
+        }
+        #surpriseText {
+            animation: popIn 1s ease;
+        }
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <audio id="bgMusic" loop>
+        <!-- Mets ton fichier de musique ici -->
+        <source src="image/musique.mp3" type="audio/mpeg">
+        Votre navigateur ne supporte pas l'audio.
+    </audio>
+
+    <div class="card-main">
+        <h1>JOYEUX ANNIVERSAIRE</h1>
+        <p class="birthday-text">Bonne fête <strong>Pr Jacques FERAZA</strong> ! 🎉</p>
+
+        <div class="photos-container">
+            <!-- Remplace par tes vraies photos -->
+            <img class="photo ani" src="image/john (1).jpg" class="img1">
+        <img class="photo ani" src="image/john (2).jpg" class="img2">
+        <img class="photo ani" src="image/john (3).jpg" class="img3">
+        <img class="photo ani" src="image/john (4).jpg" class="img4">
+        <img class="photo ani" src="image/john (5).jpg" class="img5">
+        </div>
+
+        <button class="music-btn" onclick="playMusic()">Lancer la musique 🎶</button>
+        <button class="surprise-btn" onclick="showSurprise()">Clique pour une surprise 🎁</button>
+    </div>
+
+    <!-- La surprise cachée -->
+    <div id="surpriseContainer">
+        <h3>🎉 PETITE SURPRISE POUR TOI !</h3>
+        <p id="surpriseText">
+            Bonne fête Pr Jacques FERAZA !<br>
+            Que cette année t’apporte santé, joie, amour et réussite.<br>
+            Tu mérites le meilleur, et surtout beaucoup de sourires.<br>
+            On t’embrasse très fort ! ❤️
+        </p>
+    </div>
+
+    <!-- Bootstrap 5 JS (optionnel) -->
+   <script src="js/bootstrap.min.js"></script>
+    <script>
+        const audio = document.getElementById("bgMusic");
+        const surprise = document.getElementById("surpriseContainer");
+
+        function playMusic() {
+            audio.play()
+                .then(() => {
+                    console.log("Musique lancée !");
+                })
+                .catch(err => {
+                    console.error("Erreur lecture audio :", err);
+                    alert("Impossible de lire la musique. Vérifie le fichier ou le navigateur.");
+                });
+        }
+
+        function showSurprise() {
+            surprise.style.display = "block";
+        }
+    </script>
+</body>
+</html>
